@@ -363,7 +363,7 @@ public class TemplatedProcessor extends AbstractProcessor {
         org.jsoup.nodes.Element root = null;
         String fqTemplate = TypeSimplifier.packageNameOf(type).replace('.', '/') + "/" + templateSelector.template;
         try {
-            FileObject templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_PATH, "",
+            FileObject templateResource = processingEnv.getFiler().getResource(StandardLocation.CLASS_OUTPUT, "",
                     fqTemplate);
             Document document = Jsoup.parse(templateResource.getCharContent(true).toString());
             if (templateSelector.hasSelector()) {
